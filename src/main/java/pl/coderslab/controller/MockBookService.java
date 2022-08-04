@@ -1,7 +1,6 @@
 package pl.coderslab.controller;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RestController;
 import pl.coderslab.model.Book;
 
 import java.util.ArrayList;
