@@ -1,6 +1,7 @@
 package pl.coderslab.controller;
 
 import org.springframework.stereotype.Component;
+import pl.coderslab.model.Author;
 import pl.coderslab.model.Book;
 
 import java.util.ArrayList;
@@ -14,10 +15,10 @@ public class MockBookService implements BookService {
 
     public MockBookService() {
         books = new ArrayList<>();
-        books.add(new Book(1L, "9788324631766", "Thiniking in Java", "Bruce Eckel", "Helion", "programming"));
-        books.add(new Book(2L, "9788324627738", "Rusz glowa Java.", "Sierra Kathy, Bates Bert", "Helion",
+        books.add(new Book(1L, "9788324631766", "Thiniking in Java", new Author("Ryszard", "Kowalski"), "Helion", "programming"));
+        books.add(new Book(2L, "9788324627738", "Rusz glowa Java.", new Author("Marian", "Parowoz"), "Helion",
                 "programming"));
-        books.add(new Book(3L, "9780130819338", "Java 2. Podstawy", "Cay Horstmann, Gary Cornell", "Helion",
+        books.add(new Book(3L, "9780130819338", "Java 2. Podstawy", new Author("Krzysiek", "Poważny"), "Helion",
                 "programming"));
     }
 
