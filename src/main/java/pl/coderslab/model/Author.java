@@ -1,30 +1,50 @@
 package pl.coderslab.model;
 
-public class Author {
-    private String name;
-    private String surname;
+import javax.persistence.*;
 
-    public Author(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
+@Entity
+@Table(name = "author")
+public class Author {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String firstName;
+    private String lastName;
+
+
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Author() {
     }
 
-    public String getName() {
-        return name;
+    public String getFullName(){
+        return String.join(" ", firstName, lastName);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Long getId() {
+        return id;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

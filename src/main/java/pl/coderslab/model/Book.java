@@ -1,15 +1,22 @@
 package pl.coderslab.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "books")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String isbn;
     private String title;
+
+    @ManyToOne
     private Author author;
     private String publisher;
     private String type;
 
-    public Book(Long id, String isbn, String title, Author author, String publisher, String type) {
-        this.id = id;
+    public Book(String isbn, String title, Author author, String publisher, String type) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
@@ -17,7 +24,7 @@ public class Book {
         this.type = type;
     }
 
-    public Book(){
+    public Book() {
 
     }
 
@@ -67,5 +74,17 @@ public class Book {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author=" + author +
+                ", publisher='" + publisher + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
